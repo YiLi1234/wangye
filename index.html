@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>音乐</title>
+<style>
+	html,body{
+		width:1300px;
+		height:1000px;
+	}
+	.box{
+		position: absolute;
+		top: 200px;
+		left: 600px;
+		z-index: 1;
+		width: 680px;
+		height: 405px;
+	}
+	.box .left,.right{
+		z-index: 5;
+		display: block;
+		position: absolute;
+		top: 40%;
+		width: 50px;
+		height: 80px;
+		font-size: 60px;
+		line-height: 70px;
+		text-decoration: none;
+		text-align: center;
+		color: rgba(255,255,255,1.00);
+		background: rgba(0,155,255,0.50);
+	}
+	.box .left{
+		float: left;
+		left: 20px;
+	}
+	.box .right{
+		float: right;
+		right: 20px;
+	}
+	.box img{
+		display: block;
+		width: 720px;
+		height: 405px;
+	}
+	.box .text{
+		background: rgba(0,0,0,0.52);
+		padding: 30px 10px 30px 10px;
+		z-index: 3;
+		text-align: left;
+		font-size: 20px;
+		line-height: 20px;
+		color: rgba(255,255,255,1.00);
+		width: 700px;
+		position: absolute;
+		bottom: 0px;
+		margin: 0;
+	}
+	.box .imgBottom{
+		z-index: 4;
+		display: inline-block;
+		position: absolute;
+		margin: 0;
+		left: 45%;
+		bottom: 0;
+		padding-bottom: 5px;
+		padding-inline-start :0px;
+	}
+	.box .imgBottom li{
+		display: inline-block;
+		width: 15px;
+		height: 15px;
+		background: rgba(150,150,150,1.00);
+		color: rgba(255,255,255,1.00);
+		font-size: 12px;
+		text-align: center;
+		line-height: 12px;
+	}
+	.box .imgBottom .active{
+		background: rgba(255,255,255,1.00);
+	}
+	        .tip1 {
+	            position: absolute;
+				top: 680px;
+				left: 730px;
+	            background-color: #545454;
+	            margin: 20px auto;
+	            width: 246px;
+	            height: 43px;
+	            line-height: 43px;
+	            color: white;
+	            text-align: center;
+	            border-radius: 10px;
+	            font-family: sans-serif;
+				font-size: 20px;
+	        }
+	        .tip1:after {
+	            content: '';
+	            position: absolute;
+	            width: 0;
+	            height: 0;
+	            border: 8px solid;
+	        }
+	        .left:after {
+	            border-right-color: #545454;
+	            top: 50%;
+	            right: 100%;
+	            margin-top: -9px;
+	        }
+			.tip2 {
+			    position: absolute;
+				top: 750px;
+				left: 950px;
+			    background-color: #545454;
+			    margin: 20px auto;
+			    width: 246px;
+			    height: 43px;
+			    line-height: 43px;
+			    color: white;
+			    text-align: center;
+			    border-radius: 10px;
+			    font-family: sans-serif;
+				font-size: 20px;
+			}
+			.tip2:after {
+			    content: '';
+			    position: absolute;
+			    width: 0;
+			    height: 0;
+			    border: 8px solid;
+			}
+			 .right:after {
+			            border-left-color: #545454;
+			            left: 100%;
+			            top: 50%;
+			            margin-top: -7px;
+			        }
+			.photo1{
+				position: absolute;
+				width: 43px;
+				height: 43px;
+				top: 695px;
+				left: 675px;
+				border-radius: 50%;
+			}
+			.photo2{
+				position: absolute;
+				width: 43px;
+				height: 43px;
+				top: 770px;
+				left: 1212px;
+				border-radius: 50%;
+			}
+			.text1{
+				position: absolute;
+				top: 635px;
+				left: 645px;
+				font-size: 30px;
+				color: #000000;
+			}
+			.top{
+			    /* 设置宽度高度背景颜色 */
+			    height: 50px;
+			    width:100%;
+			    margin-left: 0;
+			    background:rgb(189, 181, 181);
+			    top: 75px;
+			    margin-bottom: 5px;
+			}
+			.top ul{
+			    /* 清除ul标签的默认样式 */
+			    width: auto;/*宽度也改为自动*/
+			    list-style-type: none;
+			    white-space:nowrap;
+			    overflow: hidden;
+			    margin-left: 5%;
+			    /* margin-top: 0;          */
+			    padding: 0;
+			
+			}
+			.top li {
+			    float:left; /* 使li内容横向浮动，即横向排列  */
+			    margin-right:3%;  /* 两个li之间的距离*/
+			    position: relative;
+			    overflow: hidden;
+			}
+			
+			.top li a{
+			   /* 设置链接内容显示的格式*/
+			    display: block; /* 把链接显示为块元素可使整个链接区域可点击 */
+			    color:white;
+			    text-align: center;
+			    padding: 3px;
+			    overflow: hidden;
+			    text-decoration: none; /* 去除下划线 */
+			    
+			}
+			.top li a:hover{
+			    /* 鼠标选中时背景变为黑色 */
+			    background-color: #111;
+			}
+			.text2{
+				position: absolute;
+				top: 3px;
+				left: 710px;
+				font-size: 48px;
+				color: #eff3f5;
+				border-radius: 50%;
+				border: solid 5px #9d9d9d;
+			}
+			.container {
+				position: absolute;
+				top: 20px;
+			    height: 70px;
+				left: 900px;
+			    width: 100px;
+			    margin: 100px auto 0 auto;
+			}
+			.parent {
+			    position: relative;
+			}
+			.search {
+			    width: 300px;
+			    height: 40px;
+			    border-radius: 18px;
+			    outline: none;
+			    border: 1px solid #ccc;
+			    padding-left: 20px;
+			    position: absolute;
+			}
+			.wenzi1{
+				position: absolute;
+				top: 300px;
+				left: 130px;
+				font-size: 60px;
+				color: rgb(189, 181, 181);
+			}
+			.wenzi2{
+				position: absolute;
+				top: 410px;
+				left: 260px;
+				font-size: 65px;
+				color:  rgb(189, 181, 181);
+			}
+			.tu{
+				background-image: url(图2.jpg);
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			.text3{
+				position: absolute;
+				top: 880px;
+				left: 480px;
+				color: #808080;
+				font-size: 24px;
+			}
+			.tupian1{
+				position: absolute;
+				top: 930px;
+				left: 430px;
+				wideth: 55px;
+				height: 55px;
+			}
+			.tupian2{
+				position: absolute;
+				top: 930px;
+				left: 590px;
+				wideth: 55px;
+				height: 55px;
+			}
+			.tupian3{
+				position: absolute;
+				top: 930px;
+				left: 740px;
+				wideth: 55px;
+				height: 55px;
+			}
+</style>
+</head>
+<body class="tu">
+	    <div class="top">
+	                   <center> 
+	                    <ul>
+	                    <li><a href="#">TOUR</a></li>
+	                    <li><a href="#">MUSIC</a></li>
+	                    <li><a href="#">NEWS</a></li>
+	                    <li><a href="#"><b>GALLERY</b></a></li>
+	                    <li><a href="#">STORE</a></li>
+	                    <li>
+	                        <a href="#">COMMITY</a>
+	                    </li>        
+	                      </ul>
+	                    </center>      
+	            </div>
+        <div class="text2">GF</div>
+		
+		<div class="container">
+		    <form action="" class="parent">
+		        <input type="text" class="search" placeholder="搜索">
+		    </form>
+		</div>
+
+	<div class="box">
+		<img id="change" src="悦神.jpg" alt="" />
+		<div id="imgText" class="text"></div>
+		<ul id="num" class="imgBottom">
+			<li class onClick="jump(0)" >1</li>
+			<li class onClick="jump(1)" >2</li>
+			<li class onClick="jump(2)" >3</li>
+			<li class onClick="jump(3)" >4</li>
+		</ul>
+		<a class="left" href="#" onclick="last();" ><</a>
+		<a class="right" href="#" onclick="next();" >></a>
+	</div>
+	<script>
+		var image = new Array();			//声明数组用来存储要轮播图片的地址
+		image[0] = "悦神.jpg";			//为数组中每一个元素赋值图片的地址
+		image[1] = "是风动.jpg";
+		image[2] = "伞下铭.jpg";
+		image[3] = "一拜天地.jpg";
+		var introduce = new Array();		//声明数组用来存储要文字内容
+		introduce[0] = "KBShinya-《悦神》";//为数组中每一个元素赋值的文字内容
+		introduce[1] = "银临-《是风动》";
+		introduce[2] = "洛少爷+封茗囧菌-《伞下铭》";
+		introduce[3] = "慕寒+黄诗扶-《一拜天地》";
+		document.getElementById("change").src = image[0];//初始化图片
+		document.getElementById("imgText").innerHTML = introduce[0];//初始化文字内容
+		var items = document.getElementById("num").getElementsByTagName("li");//定义序号数组
+		items[0].className = "active";//初始化序号
+		var i = -1;							//用来迭代图片次序的变量
+		function changeImg(){				//定义更改img标签中src属性的函数	
+			i = (i + 1) % image.length;		//递增变量，用来指向下一张图片,并使变量不大于图片的数量
+			document.getElementById("change").src = image[i];//更改src属性
+			document.getElementById("imgText").innerHTML = introduce[i];//更改文字内容
+			exI();
+		}
+		var b = self.setInterval("changeImg()", 3000);//定时执行函数
+		function last(){
+			self.clearInterval(b);						//清除计时
+			i = (i + image.length - 1) % image.length;	//对变量进行递减操作	
+			document.getElementById("change").src = image[i];//替换图片
+			document.getElementById("imgText").innerHTML = introduce[i];//替换文字内容
+			exI();
+			b = self.setInterval("changeImg()", 3000);
+		}
+		function next(){
+			self.clearInterval(b);
+			i = (i + 1) % image.length;	
+			document.getElementById("change").src = image[i];
+			document.getElementById("imgText").innerHTML = introduce[i];
+			exI();
+			b = self.setInterval("changeImg()", 3000);
+		}
+		function jump(k){//接收li标签的位置
+			self.clearInterval(b);//清除计时
+			i = k;//将选中的序号赋值给i
+			document.getElementById("change").src = image[i];//替换图片
+			document.getElementById("imgText").innerHTML = introduce[i];//替换文字内容
+			exI();//改变序号显示
+			b = self.setInterval("changeImg()", 3000);//重新开始计时
+		}
+		function exI(){
+			for(var j = 0; j < items.length; j++){
+				items[j].className = "";
+				if(i == j)
+					items[i].className = "active";
+			}
+		}
+	</script>
+	<div class="text1">TWEETS</div>
+	<div class="tip1 left">解怨释结，更莫相憎</div>
+    <div class="tip2 right">一别两宽，各生欢喜</div>
+	<img class="photo1" src="男.jpeg">
+	<img class="photo2" src="女.jpeg">
+	<div class="wenzi1">古  风</div>
+	<div class="wenzi2">MUSIC</div>
+	<div class="text3">Some APPs you will like</div>
+	<img class="tupian1" src="网易.png">
+	<img class="tupian2" src="QQ音乐.jpg">
+	<img class="tupian3" src="酷狗.png">
+</body>
+</html>
